@@ -9,8 +9,9 @@
 }
 
 .image-box img {
-    max-width: 100%;
+    width: 100%; /* Ridimensiona l'immagine alla larghezza del contenitore */
     height: auto;
+    max-width: 100%; /* Assicura che l'immagine non superi la larghezza massima del contenitore */
 }
 
 .product-grid {
