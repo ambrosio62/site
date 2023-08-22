@@ -4,8 +4,8 @@
     margin: 0 auto; /* Centra il container orizzontalmente */
     padding: 20px; /* Spazio intorno al contenuto */
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra il contenuto orizzontalmente */
+    justify-content: space-between; /* Allinea a destra i prodotti e a sinistra l'immagine */
+    align-items: flex-start; /* Allinea l'immagine in alto */
 }
 
 .image-box img {
@@ -22,7 +22,15 @@
 
 /* Ottimizzazione per dispositivi mobili */
 @media (max-width: 768px) {
+    .collage-container {
+        flex-direction: column; /* Immagine sopra i prodotti */
+    }
+
+    .image-box {
+        margin-bottom: 20px; /* Aggiunge spazio tra l'immagine e i prodotti */
+    }
+
     .product-grid {
-        grid-template-columns: 1fr; /* Un prodotto per riga */
+        grid-template-columns: 1fr 1fr; /* Due prodotti per riga */
     }
 }
