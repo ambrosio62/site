@@ -1,20 +1,50 @@
-<div class="collage-container">
-    <div class="image-box">
-        <a href="https://vinitique.it/collections/offerte-del-giorno">
-            <img src="https://cdn.shopify.com/s/files/1/0761/7724/4499/files/pexels-florent-b-2664149_1.jpg?v=1692695716" alt="Foto">
-        </a>
-    </div>
-    <div class="product-grid">
-        {% for product in collections['nome_della_collezione'].products limit: 4 %}
-            <div class="product-card">
-                <a href="{{ product.url }}">
-                    <img src="{{ product.featured_image.src | img_url }}" alt="{{ product.title }}">
-                    <h3>{{ product.title }}</h3>
-                    <p>{{ product.price | money }}</p>
-                </a>
-            </div>
-        {% endfor %}
-    </div>
-</div>
+/* Stili di base per il collage */
+.collage-container {
+    display: flex;
+    width: 1400px;
+    margin: 0 auto;
+}
 
-<link rel="stylesheet" href="URL_DEL_TUO_FILE_CSS">
+.image-box {
+    flex: 1;
+    padding: 20px;
+}
+
+.image-box img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    background-color: transparent;
+    border: none;
+}
+
+.product-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    padding: 20px;
+    background-color: transparent;
+    border: none;
+}
+
+/* Ottimizzazione per dispositivi mobili */
+@media (max-width: 768px) {
+    .collage-container {
+        flex-direction: column;
+    }
+
+    .image-box,
+    .product-grid {
+        width: 100%;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
