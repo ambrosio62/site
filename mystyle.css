@@ -1,50 +1,28 @@
 /* Stili di base per il collage */
 .collage-container {
     display: flex;
-    width: 1400px;
-    margin: 0 auto;
-}
-
-.image-box {
-    flex: 1;
-    padding: 20px;
+    flex-direction: column;
+    align-items: center; /* Centra il contenuto orizzontalmente */
 }
 
 .image-box img {
     max-width: 100%;
     height: auto;
-    display: block;
-    background-color: transparent;
-    border: none;
 }
 
 .product-grid {
-    flex: 1;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
-.product-card {
-    padding: 20px;
-    background-color: transparent;
-    border: none;
-}
-
 /* Ottimizzazione per dispositivi mobili */
 @media (max-width: 768px) {
     .collage-container {
-        flex-direction: column;
+        padding: 20px; /* Aggiungi spazio intorno al contenuto */
     }
-
-    .image-box,
+    
     .product-grid {
-        width: 100%;
-    }
-
-    .product-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        grid-template-columns: 1fr; /* Un prodotto per riga */
     }
 }
