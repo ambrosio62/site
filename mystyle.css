@@ -1,36 +1,95 @@
 /* Stili di base per il collage */
 .collage-container {
-    max-width: 1400px; /* Larghezza massima per desktop */
-    margin: 0 auto; /* Centra il container orizzontalmente */
-    padding: 20px; /* Spazio intorno al contenuto */
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
     display: flex;
-    justify-content: space-between; /* Allinea a destra i prodotti e a sinistra l'immagine */
-    align-items: flex-start; /* Allinea l'immagine in alto */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.image-box {
+    width: 50%;
+    padding-right: 10px;
+    position: relative;
+    opacity: 0.9;
 }
 
 .image-box img {
-    width: 100%; /* Ridimensiona l'immagine alla larghezza del contenitore */
+    width: 100%;
     height: auto;
-    max-width: 100%; /* Assicura che l'immagine non superi la larghezza massima del contenitore */
+    max-width: 100%;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Larsseit', sans-serif;
+    color: white;
+    font-size: 18px;
 }
 
 .product-grid {
+    width: 50%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
-/* Ottimizzazione per dispositivi mobili */
+.product-card {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: white;
+}
+
+.product-card a {
+    text-decoration: none;
+}
+
+.product-card h3 {
+    margin-top: 0;
+    color: #000;
+    text-decoration: none;
+}
+
+.product-card p {
+    color: #800000;
+    margin-bottom: 10px;
+}
+
+.add-to-cart-button {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.add-to-cart-button:hover {
+    background-color: #800000;
+    border-color: #800000;
+    color: white;
+}
+
 @media (max-width: 768px) {
     .collage-container {
-        flex-direction: column; /* Immagine sopra i prodotti */
+        flex-direction: column;
     }
 
-    .image-box {
-        margin-bottom: 20px; /* Aggiunge spazio tra l'immagine e i prodotti */
+    .image-box, .product-grid {
+        width: 100%;
+        padding-right: 0;
     }
 
     .product-grid {
-        grid-template-columns: 1fr 1fr; /* Due prodotti per riga */
+        grid-template-columns: 1fr 1fr;
     }
 }
